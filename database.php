@@ -1,16 +1,25 @@
 <?php
 function getDatabaseConnection(){
+    /*
+    $host= "us-cdbr-iron-east-05.cleardb.net";
+    $username="b64c4d27a0547d";
+    $password="3f93aa33";
+    $dbname="heroku_ee834e92c455aa7";
+    */
+    
+    
     $host= "localhost";
     $username="gen";
     $password="CST336";
     $dbname="shopping_cart_cst336_sp_2018";
     
+    
        
     // Create connection
-        $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        $dbConn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+   $dbConn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-        return $dbConn; 
+    return $dbConn; 
     }
     function insertItemsIntoDB($items) {
         if (!$items) return; 

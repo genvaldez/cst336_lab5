@@ -8,12 +8,13 @@ function displayResults(){
         
         foreach($items as $item){
             $itemName=$item['name'];
-            $itemPrice=$item['salePrice'];
-            $itemImage=$item['thumbnailImage'];
-            $itemId=$item['itemId'];
+            $itemPrice=$item['price'];
+            $itemImage=$item['image_url'];
+            $itemId=$item['item_id'];
             
             //Display item as table row
             echo '<tr>';
+            if($itemImage)
             echo "<td><img src='$itemImage'></td>";
             echo "<td><h4>$itemName</h4></td>";
             echo "<td><h4>$itemPrice</h4></td>";
@@ -59,16 +60,15 @@ function displayCart(){
             
             //Hidden input element
             echo "<form method='post'>";
-            echo "<input type='hidden' name='removeId' value='$itemId'>";
+            echo "<input type='hidden' name='itemId' value='$itemId'>";
             echo "<td><input type='text' name='update' class='form-control' placeHolder='$itemQuant'></td>";
-            echo "<td><button class='btn btn-danger'>Remove</button></td>";
+            echo "<td><button class='btn btn-danger'>Update</button></td>";
             echo "<form>";
             
             //update form for this item
             echo "<form method='post'>";
-            echo "<input type='hidden' name='itemId' value='$itemId'>";
-            echo "<td><input type='text' name='update' class='form-control' placeHolder='$itemQuant'></td>";
-            echo '<td><button class="btn btn-danger">Update</button></td>';
+            echo "<input type='hidden' name='removeId' value='$itemId'>";
+            echo '<td><button class="btn btn-danger">Remove</button></td>';
             echo "</form>";
             echo "</tr>";
         }

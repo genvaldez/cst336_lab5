@@ -1,5 +1,6 @@
 <?php
 function getDatabaseConnection(){
+
     /*
     $host= "us-cdbr-iron-east-05.cleardb.net";
     $username="b64c4d27a0547d";
@@ -8,11 +9,21 @@ function getDatabaseConnection(){
     */
     
     
+    
     $host= "localhost";
     $username="gen";
     $password="CST336";
     $dbname="shopping_cart_cst336_sp_2018";
+    $charset='utf8mb4';
     
+    if(strpos($_SERVER['HTTP_HOST'], 'herokuapp') !== false) {
+       $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+       $host = $url["host"];
+       $dbname  = substr($url["path"], 1);
+       $username = $url["username"];
+       $password = $url["password"];
+        
+    }
     
        
     // Create connection

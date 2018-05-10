@@ -8,9 +8,6 @@ function getDatabaseConnection(){
     $dbname="heroku_ee834e92c455aa7";
     */
 
-    
-    
-    
     $host= "localhost";
     $username="gen";
     $password="CST336";

@@ -7,6 +7,7 @@ function getDatabaseConnection(){
     $password="3f93aa33";
     $dbname="heroku_ee834e92c455aa7";
     */
+
     
     
     
